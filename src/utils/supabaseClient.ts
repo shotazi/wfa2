@@ -26,8 +26,7 @@ export async function generateDefinition(
 
     <div class="flashcard-content">
       <div class="word">
-        <h2>${word}</h2>
-        <p class="pronunciation">[transcription if applicable]</p>
+        <h2>${word} <span>[transcription if applicable]</span></h2>
       </div>
       
       <div class="definition">
@@ -35,22 +34,18 @@ export async function generateDefinition(
         <p>[Georgian definition]</p>
       </div>
       
-      <div class="translation">
-        <h3>თარგმანი:</h3>
-        <p>[English translation]</p>
+
+      <div class="context">
+        <h3>კონტექსტი:</h3>
+        <p>[How the word is used in the given context]</p>
       </div>
       
       <div class="examples">
-        <h3>მაგალითები:</h3>
+        <h3>დამატებითი მაგალითები:</h3>
         <ul>
           <li>[Example 1 in Georgian]</li>
           <li>[Example 2 in Georgian]</li>
         </ul>
-      </div>
-      
-      <div class="context">
-        <h3>კონტექსტი:</h3>
-        <p>[How the word is used in the given context]</p>
       </div>
     </div>
   `;
@@ -59,7 +54,20 @@ export async function generateDefinition(
   const response = await result.response;
   const text = response.text();
 
-  return text;
+  const html = extractHTML(text)
+  console.log('text from gemini', text, html)
+
+  return html;
+}
+
+
+function extractHTML(geminiResponse) {
+  const match = geminiResponse.match(/```html(.*?)```/s); // 's' flag for dotAll
+  if (match) {
+    return match[1].trim();
+  } else {
+    return geminiResponse; 
+  }
 }
 
 export async function createDeck(name: string): Promise<string | null> {

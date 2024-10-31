@@ -1,35 +1,39 @@
 import { WordFrequencyEn } from "../data/en";
 
 export const frequencyGroups = [
-  { id: 't1', name: 'Top 1000', color: '#22c55e' },
-  { id: 't2', name: 'Top 2000', color: '#4ade80' },
-  { id: 't3', name: 'Top 3000', color: '#86efac' },
-  { id: 't4', name: 'Top 4000', color: '#86efac' },
-  { id: 't5', name: 'Top 5000', color: '#86efac' },
-  { id: 't6', name: 'Top 6000', color: '#86efac' },
-  { id: 't7', name: 'Top 7000', color: '#86efac' },
-  { id: 't8', name: 'Top 8000', color: '#86efac' },
-  { id: 't9', name: 'Top 9000', color: '#86efac' },
-  { id: 't10', name: 'Top 10000', color: '#86efac' },
-  { id: 't11', name: 'Top 11000', color: '#22c55e' },
-  { id: 't12', name: 'Top 12000', color: '#4ade80' },
-  { id: 't13', name: 'Top 13000', color: '#86efac' },
-  { id: 't14', name: 'Top 14000', color: '#86efac' },
-  { id: 't15', name: 'Top 15000', color: '#86efac' },
-  { id: 't16', name: 'Top 16000', color: '#86efac' },
-  { id: 't17', name: 'Top 17000', color: '#86efac' },
-  { id: 't18', name: 'Top 18000', color: '#86efac' },
-  { id: 't19', name: 'Top 19000', color: '#86efac' },
-  { id: 't20', name: 'Top 20000', color: '#86efac' },
-  { id: 't', name: 'rest', color: '#bbf7d0' },
+  { id: 't1', name: 'Top 1000', color: '#FFFFFF' },
+  { id: 't2', name: 'Top 2000', color: '#21c45d20' },
+  { id: 't3', name: 'Top 3000', color: '#21c45d30' },
+  { id: 't4', name: 'Top 4000', color: '#21c45d40' },
+  { id: 't5', name: 'Top 5000', color: '#21c45d50' },
+  { id: 't6', name: 'Top 6000', color: '#21c45d60' },
+  { id: 't7', name: 'Top 7000', color: '#21c45d70' },
+  { id: 't8', name: 'Top 8000', color: '#21c45d75' },
+  { id: 't9', name: 'Top 9000', color: '#21c45d80' },
+  { id: 't10', name: 'Top 10000', color: '#21c45d85' },
+  { id: 't15', name: 'Top 15000', color: '#21c45d90' },
+  { id: 't20', name: 'Top 20000', color: '#21c45d95' },
+  { id: 't30', name: 'Top 30000', color: '#21c45d' },
+  { id: 'rest', name: 'Rest', color: '#21c45d' },
 ];
 
 export const frequencyColor = {
-  t1: '#22c55e',
-  t2: '#4ade80',
-  t3: '#86efac',
-  rest: '#bbf7d0',
+  t1: '#21c45d15',
+  t2: '#21c45d20',
+  t3: '#21c45d30',
+  t4: '#21c45d40',
+  t5: '#21c45d50',
+  t6: '#21c45d60',
+  t7: '#21c45d70',
+  t8: '#21c45d75',
+  t9: '#21c45d80',
+  t10: '#21c45d85',
+  t15: '#21c45d90',
+  t20: '#21c45d95',
+  t30: '#21c45d',
+  rest: '#21c45d', // Or #bbf7d0 if you want "rest" to be different
 };
+
 
 // Mock word frequency data - in a real app, this would come from a proper word frequency database
 // const mockWordFrequency = new Map([
@@ -78,7 +82,7 @@ export function analyzeText(text: string) {
   const wordData = new Map();
 
   uniqueWords.forEach((word) => {
-    const groupId = WordFrequencyEn.get(word) || 'academic';
+    const groupId = WordFrequencyEn.get(word) || 'rest';
     const group = wordGroups.find((g) => g.id === groupId);
     if (group) {
       group.words.add(word);

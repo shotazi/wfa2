@@ -39,7 +39,8 @@ export function TextEditor({
               'cursor-pointer transition-colors duration-200',
               'hover:ring-2 hover:ring-blue-300 rounded'
             )}
-            style={{ backgroundColor: `${frequencyColor[data.groupId]}40` }}
+            id={word + '-' + data.groupId + '-'}
+            style={{ backgroundColor: `${frequencyColor[data.groupId]}` }}
             onClick={() => onWordClick(cleanWord)}
           >
             {word}

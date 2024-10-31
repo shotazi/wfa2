@@ -84,7 +84,7 @@ export function Sidebar({ wordGroups, onGroupToggle, onCreateFlashcards, onWordC
   };
 
   return (
-    <div className="sticky top-4 h-[calc(100vh-2rem)] flex flex-col bg-white rounded-lg shadow-sm">
+    <div className="sticky top-4 h-[calc(100vh-8rem)] overflow-y-scroll flex flex-col bg-white rounded-lg shadow-sm">
       <div className="flex border-b">
         <button
           className={`flex-1 p-4 flex items-center justify-center gap-2 ${
@@ -126,7 +126,7 @@ export function Sidebar({ wordGroups, onGroupToggle, onCreateFlashcards, onWordC
                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                   </label>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
                   {Array.from(group.words).slice(0, 5).map((word) => (
                     <button
                       key={word}
@@ -142,6 +142,18 @@ export function Sidebar({ wordGroups, onGroupToggle, onCreateFlashcards, onWordC
                       +{group.words.size - 5} more
                     </span>
                   )}
+                </div> */}
+                <div className="flex flex-wrap gap-2">
+                  {Array.from(group.words).map((word) => (
+                    <button
+                      key={word}
+                      onClick={() => onWordClick(word)}
+                      className="px-2 py-1 text-sm rounded hover:ring-2 hover:ring-blue-300 transition-all duration-200"
+                      style={{ backgroundColor: `${group.color}` }}
+                    >
+                      {word}
+                    </button>
+                  ))}
                 </div>
                 <button
                   onClick={() => handleCreateFlashcards(group.id)}
