@@ -64,6 +64,7 @@ export default function App() {
               onGroupToggle={handleGroupToggle}
               onCreateFlashcards={handleCreateFlashcards}
               onWordClick={setSelectedWord}
+              text={text}
             />
           </div>
         </div>

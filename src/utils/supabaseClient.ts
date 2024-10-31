@@ -145,5 +145,6 @@ export async function getFlashcardsForDeck(deckId: string): Promise<any[]> {
     return [];
   }
 
+  console.log('data: ', data)
   return data;
 }

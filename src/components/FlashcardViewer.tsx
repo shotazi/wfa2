@@ -61,6 +61,8 @@ export function FlashcardViewer({ deckId, onClose }: FlashcardViewerProps) {
 
   const currentCard = flashcards[currentIndex];
 
+  console.log('current card', currentCard)
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-3xl w-full">
@@ -89,7 +91,7 @@ export function FlashcardViewer({ deckId, onClose }: FlashcardViewerProps) {
               <div className="text-3xl font-bold">{currentCard.front}</div>
             ) : (
               <div
-                className="prose prose-lg max-w-none w-full overflow-y-auto"
+                className="prose prose-lg max-w-none w-full overflow-y-auto max-h-[400px]"
                 style={{
                   transform: 'rotateY(180deg)',
                 }}
