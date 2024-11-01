@@ -26,7 +26,7 @@ export async function generateDefinition(
 
     <div class="flashcard-content">
       <div class="word">
-        <h2>${word} <span>[transcription if applicable]</span></h2>
+        <h2>${word} <span>[IPA transcription]</span></h2>
       </div>
       
       <div class="definition">

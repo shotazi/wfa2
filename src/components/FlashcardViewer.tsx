@@ -79,7 +79,7 @@ export function FlashcardViewer({ deckId, onClose }: FlashcardViewerProps) {
         </div>
         <div className="p-8">
           <div
-            className="min-h-[400px] flex items-center justify-center p-8 rounded-lg border cursor-pointer transition-all duration-300 transform hover:shadow-lg"
+            className="h-[400px] flex items-center justify-center p-8 rounded-lg border cursor-pointer transition-all duration-300 transform hover:shadow-lg"
             onClick={() => setIsFlipped(!isFlipped)}
             style={{
               perspective: '1000px',
@@ -104,7 +104,7 @@ export function FlashcardViewer({ deckId, onClose }: FlashcardViewerProps) {
             <div className="mt-6">
               <h3 className="text-lg font-semibold mb-2">Examples from text:</h3>
               <ul className="space-y-2">
-                {currentCard.examples.map((example, index) => (
+                {currentCard.examples.slice(0,2).map((example, index) => (
                   <li
                     key={index}
                     className="p-3 bg-gray-50 rounded-lg text-gray-700"
